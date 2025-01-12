@@ -158,8 +158,9 @@ const employees = [
 
    export const getLocalStorage=JSON.parse(localStorage.getItem('employees'))
    export const getadmin=JSON.parse(localStorage.getItem('admin'))
-console.log(getLocalStorage);
-console.log(getadmin);
+// console.log(getLocalStorage);
+// console.log(getadmin);
+
 
 
   //  console.log(JSON.parse(getLocalStorage));
