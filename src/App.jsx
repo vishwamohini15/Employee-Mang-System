@@ -19,6 +19,7 @@ const App = () => {
 
 
   const [user, setUser] = useState(null)
+  const [logedinUserData, setLogedinUserData] = useState(null)
   const authdata=useContext(AuthContext)
   // console.log(authdata.employess.find((e)=>Email==e.Email && password==e.password));
 
@@ -38,10 +39,14 @@ const App = () => {
     // console.log("this is admin");
     setUser('admin')
     localStorage.setItem('loggedInuser', JSON.stringify({role:'admin'}))
-  }else  if (authdata.employess.find((e)=>Email==e.email && password==e.password)) {
+  }else  if (authdata) {
     // console.log("this is user");
-    setUser('employess')
+    const empolyee=authdata.employess.find((e)=>Email==e.email && password==e.password)
+    if (empolyee) {
+      setUser('employess')
+      setLogedinUserData(empolyee)
     localStorage.setItem('loggedInuser', JSON.stringify({role:'employess'}))
+    }
 
   }else{
     alert("invalid credentials")
@@ -53,7 +58,7 @@ const App = () => {
   return (
     <>
     {!user ? <Login  handlelogin={handlelogin}/> : ''}
-    {user =='admin' ? <AdminDashboard/> : <EmpolyeeDashboard/>}
+    {user =='admin' ? <AdminDashboard/> : (user == 'employess' ? <EmpolyeeDashboard data={logedinUserData} /> : null)}
     </>
   )
 }
