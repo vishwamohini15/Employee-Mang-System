@@ -23,14 +23,12 @@ const App = () => {
   const authdata=useContext(AuthContext)
   // console.log(authdata.employess.find((e)=>Email==e.Email && password==e.password));
 
-  // useEffect(() => {
-  //   if (authdata) {
-  //     const loggedInuser=localStorage.getItem("loggedInuser");
-  //     if (loggedInuser) {
-  //       setUser(loggedInuser.role)
-  //     }
-  //   }
-  // }, [authdata])
+  useEffect(()=>{
+    const loggedinUser= localStorage.getItem('loggedInuser')
+  if (loggedinUser) {
+  const userData = JSON.parse(lo)    
+  }    
+  })
   
 
 
