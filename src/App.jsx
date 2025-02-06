@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { getadmin, getLocalStorage, setLocalStorage, setLocalStorageAdm } from './utlis/localstorage'
 import { Children } from 'react'
 import { AuthContext } from './contex/Authprovider'
+import { data } from 'autoprefixer'
 
 const App = () => {
   // useEffect(() => {
@@ -26,9 +27,11 @@ const App = () => {
   useEffect(()=>{
     const loggedinUser= localStorage.getItem('loggedInuser')
   if (loggedinUser) {
-  const userData = JSON.parse(lo)    
+  const userData = JSON.parse(loggedinUser)    
+    setUser(userData.role)
+    setLogedinUserData(userData.data);
   }    
-  })
+  },[])
   
 
 
@@ -43,7 +46,7 @@ const App = () => {
     if (empolyee) {
       setUser('employess')
       setLogedinUserData(empolyee)
-    localStorage.setItem('loggedInuser', JSON.stringify({role:'employess'}))
+    localStorage.setItem('loggedInuser', JSON.stringify({role:'employess', data:empolyee}))
     }
 
   }else{

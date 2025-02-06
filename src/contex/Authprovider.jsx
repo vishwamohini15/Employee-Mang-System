@@ -4,6 +4,7 @@ import { getadmin, getLocalStorage, setLocalStorage, setLocalStorageAdm } from '
 export const AuthContext=createContext()
 
 const Authprovider = ({children}) => {
+  // localStorage.clear()
 
   const [userData, setuserData]=useState(null);
 
