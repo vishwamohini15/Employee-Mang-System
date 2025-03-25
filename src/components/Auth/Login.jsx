@@ -1,36 +1,34 @@
 import React, { useState } from 'react'
 
-const Login = ({handlelogin}) => {
+const Login = () => {
+     const [email, setEmail] = useState()
+     const [password, setPassword] = useState()
 
-
-const [Email, setemail]=useState("")
-const [pasword, setPasword] = useState("")
-
-      const submitHandler=(e)=>{
+     function submithandler(e){
           e.preventDefault()
-          // console.log("hello i'm mohini");
-          // console.log("you email is=", Email);
-          // console.log("you password is=", pasword);
-          handlelogin(Email,pasword)
-
-          setemail("")
-          setPasword("")
-      }
+          // setEmail("")
+          // setPassword("")
+          
+          
+     }
 
   return (
-    <div className=' flex h-screen w-screen items-center justify-center'>
-      <div className='border-2 border-emerald-600 p-20 rounded-xl'>
-          <form 
-          onSubmit={submitHandler}
-          className='flex flex-col items-center justify-center'>
-               <input required className='border-2 border-emerald-600 rounded-full py-3 px-5 outline-none bg-transparent placeholder:text-gray-400' type="email" placeholder='Enter your Email' value={Email} onChange={(e)=>setemail(e.target.value)}/>
-
-               <input required className='border-2 border-emerald-600 rounded-full py-3 px-5 outline-none bg-transparent placeholder:text-gray-400 mt-4' type="password" placeholder='Enter your pasword' value={pasword} onChange={(e)=>setPasword(e.target.value)}
+    <div  className='flex items-center justify-center h-screen w-screen'>
+     <div className='border-2 border-emerald-600 p-20 rounded-xl'>
+          <form className='flex flex-col items-center justify-center' onClick={submithandler}>
+               <input required className='border-2 text-white outline-none bg-transparent border-emerald-600 text-xl  py-3 px-5 rounded-full placeholder:text-white' type="email" placeholder='Enter your Email'
+               value={email}
+               onChange={(e)=>setEmail(e.target.value)}
                />
 
-               <button className='text-white border-2 hover:bg-emerald-600 rounded-full py-3 px-5 outline-none mt-5 w-full'>Log-In</button>
+               <input required className='border-2 text-white outline-none bg-transparent border-emerald-600 text-xl  py-3 px-5 rounded-full placeholder:text-white mt-7'  type="password" placeholder='Enter your password' 
+               value={password}
+               onChange={(e)=>setPassword(e.target.value)}
+               />
+               <button  className='border-2 text-black outline-none bg-emerald-700 border-emerald-600 text-xl  py-3 px-5 rounded-full placeholder:text-white mt-7'>Log-in</button>
           </form>
-      </div>
+     </div>
+      
     </div>
   )
 }
