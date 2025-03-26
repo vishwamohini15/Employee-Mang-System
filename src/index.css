@@ -9,3 +9,6 @@ body{
   background-color: #111;
 } 
 
+#taskuu::-webkit-scrollbar{
+  display: none;
+}
