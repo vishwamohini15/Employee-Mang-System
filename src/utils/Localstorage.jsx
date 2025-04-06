@@ -172,9 +172,11 @@ export const setAdminLocalStorage=localStorage.setItem('admin', JSON.stringify(a
 export const employes=JSON.parse(localStorage.getItem('employees'))
 export const adminn=JSON.parse(localStorage.getItem('admin'))
 
+// return{employes, adminn}
+
 // const dataEmploy=localStorage.getItem('employees')
 
-console.log(admin);
+// console.log(admin);
 
 
    

@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({hendelLogin}) => {
+     // console.log(hendelLogin);
+     
      const [email, setEmail] = useState()
      const [password, setPassword] = useState()
 
      function submithandler(e){
           e.preventDefault()
-          // setEmail("")
-          // setPassword("")
+          hendelLogin(email, password)
+          setEmail("")
+          setPassword("")
           
           
      }
