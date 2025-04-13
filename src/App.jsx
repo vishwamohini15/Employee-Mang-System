@@ -45,7 +45,7 @@ setLoggedinUserData(userData.data)
   return (
     <>
     {!user ? <Login  hendelLogin={hendelLogin}/> :''}
-    {user=="admin" ?<AdminDashboard/> : (user == 'employe' ? <EmployeeDashboard data={loggedinUserData}/> : null)}
+    {user=="admin" ?<AdminDashboard  changeuser={setuser}/> : (user == 'employe' ? <EmployeeDashboard  changeuser={setuser} data={loggedinUserData}/> : null)}
     </>
   )
   
