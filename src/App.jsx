@@ -30,7 +30,7 @@ setLoggedinUserData(userData.data)
     }else if (userdata) {
       const employe=userdata.find((e)=>email==e.email && e.password==password)
       if (employe) {
-        setuser('employe')
+        setuser('employee')
         setLoggedinUserData(employe)
       localStorage.setItem('loggedInuser', JSON.stringify({role:'employee', data:employe}))
       }
@@ -45,7 +45,7 @@ setLoggedinUserData(userData.data)
   return (
     <>
     {!user ? <Login  hendelLogin={hendelLogin}/> :''}
-    {user=="admin" ?<AdminDashboard  changeuser={setuser}/> : (user == 'employe' ? <EmployeeDashboard  changeuser={setuser} data={loggedinUserData}/> : null)}
+    {user=="admin" ?<AdminDashboard  changeuser={setuser}/> : (user == 'employee' ? <EmployeeDashboard  changeuser={setuser} data={loggedinUserData}/> : null)}
     </>
   )
   
